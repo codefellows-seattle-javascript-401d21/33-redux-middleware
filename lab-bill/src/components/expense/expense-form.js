@@ -22,11 +22,6 @@ class ExpenseForm extends React.Component {
     e.preventDefault()
     if (this.props.buttonText === 'add new expense') this.props.onComplete(this.state)
     if (this.props.buttonText === 'update expense') this.props.update(this.state);
-    // this.setState({
-    //   name: '',
-    //   budget: '',
-
-    // })
   }
 
   render() {

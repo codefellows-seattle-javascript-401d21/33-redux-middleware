@@ -32,7 +32,6 @@ class ExpenseItem extends React.Component{
   }
 
   render(){
-    console.log('props in expense item',this.props)
     return(
         <li>
           <h2>{this.props.expense.name}</h2>
