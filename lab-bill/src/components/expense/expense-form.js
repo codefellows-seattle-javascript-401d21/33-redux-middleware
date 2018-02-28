@@ -7,7 +7,8 @@ class ExpenseForm extends React.Component {
       ? this.props.expense
       : {
         categoryId: this.props.categoryId,
-        title: '',
+        name: '',
+        price: '',
       }
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleChange = this.handleChange.bind(this)

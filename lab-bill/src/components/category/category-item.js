@@ -37,7 +37,7 @@ class CategoryItem extends React.Component{
 
   render(){
     return(
-        <li>
+        <section>
           <h2>{this.props.category.name}</h2>
           <p>{this.props.category.budget}</p>
           <button type='submit' onClick={this.handleClick}> delete </button>
@@ -45,12 +45,12 @@ class CategoryItem extends React.Component{
           <ExpenseForm buttonText='add new expense' onComplete={this.props.ExpenseCreate} expenseState={this.props.expenses} categoryId={this.props.category._id}/>
           {this.props.expenses[this.props.category._id] ?
           this.props.expenses[this.props.category._id].map(expense =>
-            <ExpenseItem categoryId={this.props.category._id} expense={expense}/>
+            <ExpenseItem categoryId={this.props.category._id} expense={expense} key={expense._id}/>
           )
           :
           undefined
         }
-        </li>
+        </section>
     );
   }
 }

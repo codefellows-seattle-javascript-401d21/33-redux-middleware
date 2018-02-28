@@ -16,7 +16,7 @@ class Dashboard extends React.Component {
 
         {this.props.categories ?
           this.props.categories.map(cat =>
-            <CategoryItem category={cat} update={this.props.dashboardCategoryUpdate} destroy={this.props.dashboardCategoryDestroy}/>
+            <CategoryItem key={cat._id} category={cat} update={this.props.dashboardCategoryUpdate} destroy={this.props.dashboardCategoryDestroy}/>
           )
           :
           undefined
