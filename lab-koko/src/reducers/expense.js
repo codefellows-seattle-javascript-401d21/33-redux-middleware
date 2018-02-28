@@ -18,21 +18,21 @@ export default (state = {}, action) => {
     if (payload.title === '' || payload.price === '') {
       throw new Error('Please fill out the entire form');
     }
-    if (!state._id) throw new Error('Something went wrong');
+    if (!payload.categoryId) throw new Error('Something went wrong');
     let categoryId = payload.categoryId;
     let expenses = state[categoryId];
     let changedExpenses = [...expenses, payload];
     return {...state, [categoryId]: changedExpenses};
   }
   case 'EXPENSE_UPDATE' : {
-    if(!state._id) throw new Error ('Somthing went wrong');
+    if(!payload.categoryId) throw new Error ('Somthing went wrong');
     let categoryId = payload.categoryId;
     let changedState = {...state};
     changedState[categoryId] = state[categoryId].map(expense => expense._id === payload._id ? payload : expense);
     return changedState;
   }
   case 'EXPENSE_DELETE' : {
-    if(!state._id) throw new Error ('Nothing to delete');
+    if(!payload.categoryId) throw new Error ('Nothing to delete');
     let categoryId = payload.categoryId;
     let changedState = {...state};
     changedState[categoryId] = state[categoryId].filter(expense => expense._id !== payload._id);

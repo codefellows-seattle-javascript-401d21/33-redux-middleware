@@ -35,9 +35,9 @@ class ExpenseList extends React.Component {
           this.props.expenses[this.props.categoryId].map(expense => <ExpenseItem key={expense._id} expense={expense} />)
         )} */}
         {this.props.expenses?
-          <p>
+          <section>
             {this.props.expenses[this.props.categoryId].map(expense => <ExpenseItem key={expense._id} expense={expense} />)}
-          </p>
+          </section>
           :
           undefined
         }
