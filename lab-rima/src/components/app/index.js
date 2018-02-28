@@ -8,12 +8,12 @@ import Dashboard from '../dashboard/index';
 const store = createStore();
 
 class App extends React.Component{
-  componentDidMount(){
+/*  componentDidMount(){
     store.subscribe(() => {
       console.log('__STATE__:', store.getState());
     });
   }
-
+*/
   render(){
     return(
       <main className="app">
