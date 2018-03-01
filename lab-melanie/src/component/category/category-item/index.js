@@ -42,8 +42,8 @@ class CategoryItem extends React.Component {
 
   render() {
     return (
-      <div className="category-item" key={this.props.category._id} onDoubleClick={this.handleEditing}>
-        <h3>{this.props.category.name}</h3>
+      <div className="category-item" key={this.props.category._id}>
+        <h3 onDoubleClick={this.handleEditing}>{this.props.category.name}</h3>
         <p>Budget: ${this.props.category.budget}</p>
         <button type="button" onClick={this.handleDelete}>{this.props.buttonText}</button>
         {renderIf(this.state.editing, <CategoryForm

@@ -7,9 +7,6 @@ import {BrowserRouter, Route, Link} from 'react-router-dom';
 const store = createStore();
 
 class App extends React.Component {
-  componentDidMount() {
-    store.subscribe(() => console.log('__STATE__: ', store.getState()));
-  }
 
   render() {
     return (
