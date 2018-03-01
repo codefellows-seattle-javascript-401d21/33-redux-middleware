@@ -26,7 +26,9 @@ class CategoryItem extends React.Component {
     this.setState({editing: !this.state.editing});
   }
   handleAddExpense() {
+
     this.setState({expenseView: !this.state.expenseView});
+
   }
   handleExpenseList() {
     this.setState({expenseListView: !this.state.expenseListView});

@@ -10,9 +10,16 @@ li.category-item {
     margin-left: 50px;
     margin-right: 50px;
   }
+  button {
+    font-size: 20px;
+    border: black solid 1px;
+  }
 }
 
 .cat-view {
   display: inline;
 
+}
+li.expense-item {
+  display: inline-flex;
 }
