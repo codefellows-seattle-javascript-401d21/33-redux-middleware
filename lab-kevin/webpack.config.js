@@ -48,36 +48,36 @@ module.exports = {
         test: /\.(jpg|jpeg|gif|png|tif|tiff)$/,
         use: [
           {
-          loader: 'url-loader',
-          options: {
-            limit: 6000,
-            name: 'images/[name].[ext]',
-          }
-        },
-      ],
+            loader: 'url-loader',
+            options: {
+              limit: 6000,
+              name: 'images/[name].[ext]',
+            },
+          },
+        ],
       },
       {
         test: /\.(ttf|eot|woff|woff2|svg|glyph)$/,
         use: [
           {
-          loader: 'url-loader',
-          options: {
-            limit: 10000,
-            name: 'font/[name].[ext]',
+            loader: 'url-loader',
+            options: {
+              limit: 10000,
+              name: 'font/[name].[ext]',
+            },
           },
-        },
-      ],
+        ],
       },
       {
         test: /\.(mp3|mp4|wav)$/,
         use: [
           {
-          loader: 'file-loader',
-          options: {
-            name: 'audio/[name].[ext]',
+            loader: 'file-loader',
+            options: {
+              name: 'audio/[name].[ext]',
+            },
           },
-        },
-      ],
+        ],
       },
     ],
   },

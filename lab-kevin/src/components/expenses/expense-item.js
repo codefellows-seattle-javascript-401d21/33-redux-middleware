@@ -18,7 +18,7 @@ class ExpenseItem extends React.Component {
     this.handleClose = this.handleClose.bind(this);
   }
 
-  handleDelete(e){
+  handleDelete(){
     this.props.expenseItem_expense_delete(this.props.expense);
   }
 
@@ -55,9 +55,9 @@ class ExpenseItem extends React.Component {
 }
 
 
-const mapStateToProps = state => ({expenses: state.expenses})
+const mapStateToProps = state => ({expenses: state.expenses});
 
-const mapDispatchToProps = (dispatch, getState) => ({
+const mapDispatchToProps = (dispatch) => ({
   expenseItem_expense_update : expense => dispatch(expense_update(expense)),
   expenseItem_expense_delete : expense => dispatch(expense_delete(expense)),
 });

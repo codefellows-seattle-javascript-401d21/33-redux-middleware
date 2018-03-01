@@ -73,7 +73,7 @@ class CategoryItem extends React.Component{
 }
 
 const mapStateToProps = state => ({categories: state.categories});
-const mapDispatchToProps = (dispatch, getState) => ({
+const mapDispatchToProps = dispatch => ({
   CategoryItem_category_update: category => dispatch(category_update(category)),
   CategoryItem_category_delete: id => dispatch(category_delete(id)),
 });

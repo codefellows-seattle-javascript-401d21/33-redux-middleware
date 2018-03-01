@@ -48,7 +48,7 @@ class ExpenseList extends React.Component{
 
 const mapStateToProps = state => ({expenses: state.expenses});
 
-const mapDispatchToProps = (dispatch, getState) => ({
+const mapDispatchToProps = dispatch => ({
   expenseList_expense_create : expense => dispatch(expense_create(expense)),
 });
 

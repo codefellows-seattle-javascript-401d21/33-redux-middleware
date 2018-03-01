@@ -37,7 +37,7 @@ class Dashboard extends React.Component{
 
 const mapStateToProps = state => ({categories: state.categories});
 
-const mapDispatchToProps = (dispatch, getState) => ({
+const mapDispatchToProps = dispatch => ({
   dashboard_category_create: category => dispatch(category_create(category)),
 });
 
