@@ -23,6 +23,7 @@ class CategoryItem extends React.Component {
 
   handleDelete() {
     this.props.categoryDelete(this.state)
+    console.log('state', this.state)
   }
 
   render() {
