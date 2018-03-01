@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import {Nav} from '../index.js';
 
 class Header extends React.Component{
@@ -10,7 +9,7 @@ class Header extends React.Component{
         <h1>Allocation Calculation</h1>
         <Nav />
       </header>
-    )
+    );
   }
 }
 

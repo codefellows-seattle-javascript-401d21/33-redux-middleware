@@ -1,5 +1,5 @@
 import React from 'react';
-import {Modal} from '../../app'
+import {Modal} from '../../app';
 import {CategoryForm} from '../../category';
 import {ExpenseList} from '../../expenses';
 import {connect} from 'react-redux';
@@ -11,14 +11,15 @@ class CategoryItem extends React.Component{
     super(props);
     
     this.state = {
-      editing: this.props.category.editing,
+      //editing: this.props.category.editing,
+      editing: false,
       isVisible: false,
-    }
+    };
 
-    this.handleDoubleClick = this.handleDoubleClick.bind(this)
-    this.handleClose = this.handleClose.bind(this)
-    this.handleDelete = this.handleDelete.bind(this)
-    this.handleToggleExpenses = this.handleToggleExpenses.bind(this)
+    this.handleDoubleClick = this.handleDoubleClick.bind(this);
+    this.handleClose = this.handleClose.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
+    this.handleToggleExpenses = this.handleToggleExpenses.bind(this);
   }
 
   handleToggleExpenses(){
@@ -54,12 +55,12 @@ class CategoryItem extends React.Component{
           <ExpenseList catId={this.props.category.id}/>
           : undefined}
         { this.state.editing ? 
-            <Modal onClose={this.handleClose}>
-              <CategoryForm submit_text="Re-evaluation" 
-                category={this.props.category}
-                onComplete={this.props.CategoryItem_category_update}/>
-            </Modal >
-            : undefined
+          <Modal onClose={this.handleClose}>
+            <CategoryForm submit_text="Re-evaluation" 
+              category={this.props.category}
+              onComplete={this.props.CategoryItem_category_update}/>
+          </Modal >
+          : undefined
         }
       </li>
     );
@@ -70,6 +71,6 @@ const mapStateToProps = state => ({categories: state.categories});
 const mapDispatchToProps = (dispatch, getState) => ({
   CategoryItem_category_update: category => dispatch(category_update(category)),
   CategoryItem_category_delete: id => dispatch(category_delete(id)),
-})
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(CategoryItem);
