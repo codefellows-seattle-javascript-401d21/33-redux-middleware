@@ -14,6 +14,7 @@ class ExpenseItem extends React.Component {
 
   handleDelete() {
     this.props.expenseDelete(this.state)
+    console.log('expense state', this.state)
   }
 
   render() {
@@ -23,8 +24,8 @@ class ExpenseItem extends React.Component {
         <p>{this.props.expense.name}</p>
         <h3>Price</h3>
         <p>{this.props.expense.price}</p>
-        <button className="deleteButton" onClick={() => this.props.expenseDelete(this.props.expense._id)}>delete</button>
-        {/* <button className="deleteButton" id={this.props.expense._id} onClick={this.handleDelete}>Delete</button> */}
+        {/* <button className="deleteButton" onClick={() => this.props.expenseDelete(this.props.expense._id)}>delete</button> */}
+        <button className="deleteButton" id={this.props.expense._id} onClick={this.handleDelete}>Delete</button>
         <ExpenseForm
           buttonText="update"
           expense={this.props.expense}
