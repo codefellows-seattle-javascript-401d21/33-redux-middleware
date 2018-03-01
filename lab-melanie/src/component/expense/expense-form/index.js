@@ -38,28 +38,31 @@ class ExpenseForm extends React.Component {
 
   render() {
     return (
-      <form className={this.props.className} onSubmit={this.handleSubmit}>
-        <fieldset>
-          <input
-            type="text"
-            name="name"
-            placeholder="name"
-            value={this.state.name}
-            onChange={this.handleChange}/>
-        </fieldset>
-        <fieldset>
-          <input
-            type="number"
-            name="price"
-            value={this.state.price}
-            onChange={this.handleChange}/>
-        </fieldset>
+      <section>
+        <h5>{this.props.message ? this.props.message : undefined}</h5>
+        <form className={this.props.className} onSubmit={this.handleSubmit}>
+          <fieldset>
+            <input
+              type="text"
+              name="name"
+              placeholder="name"
+              value={this.state.name}
+              onChange={this.handleChange}/>
+          </fieldset>
+          <fieldset>
+            <input
+              type="number"
+              name="price"
+              value={this.state.price}
+              onChange={this.handleChange}/>
+          </fieldset>
 
-        <button
-          type="submit">
-          {this.props.buttonText}
-        </button>
-      </form>
+          <button
+            type="submit">
+            {this.props.buttonText}
+          </button>
+        </form>
+      </section>
     );
   }
 }

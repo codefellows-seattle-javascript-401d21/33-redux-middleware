@@ -47,6 +47,7 @@ class ExpenseItem extends React.Component {
         <p>Price: ${this.props.expense.price}</p>
         <button type="button" onClick={this.handleDelete}>{this.props.buttonText}</button>
         {renderIf(this.state.editing, <ExpenseForm
+          message="Updating Expense"
           className="expense-update"
           expense={this.props.expense}
           buttonText="Update Expense"

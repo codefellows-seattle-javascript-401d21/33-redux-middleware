@@ -49,13 +49,13 @@ class CategoryItem extends React.Component {
         <h3>Budget: ${this.props.category.budget}</h3>
         <p>Remaining: ${this.props.category.budget - spent}</p>
         <button type="button" onClick={this.handleDelete}>{this.props.buttonText}</button>
-        <h5>Add an Expense</h5>
         {renderIf(this.state.editing, <CategoryForm
           category={this.props.category}
           buttonText="Update"
           onComplete={this.handleUpdate}/>)}
 
         <ExpenseForm
+          message="Add an Expense"
           className="expense-create"
           categoryId={this.props.category._id}
           buttonText="Create Expense"

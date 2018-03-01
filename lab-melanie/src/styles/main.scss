@@ -24,14 +24,14 @@ fieldset {
 
 input {
   height: 40px;
-  width: 40%;
+  width: 75%;
   background-color: $tertiary-color;
   color: $primary-color;
   font-size: 20px;
 }
 
 button {
-  width: 30%;
+  width: 35%;
   height: 50px;
   color: $primary-color;
   background-color: $secondary-color;
@@ -59,7 +59,7 @@ button {
 .expense-item {
   border: 2px solid $tertiary-color;
   border-radius: 45px 5px;
-  padding: 2px;
+  padding: 7px;
   padding-bottom: 20px;
   margin-top: 10px;
 }
