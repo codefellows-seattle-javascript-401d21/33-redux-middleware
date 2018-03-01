@@ -71,6 +71,10 @@ describe('Expense reducer', () => {
         const mockExpenseTwo = {name: 'new expense', price: 100, categoryId: '1', id: '   '};
         expect(() => reducer({}, {type: 'EXPENSE_CREATE', payload: mockExpenseTwo})).toThrow('EXPENSE REDUCER: Expense ID must be present.');
       });
+      test('should throw an error if price is negative', () => {
+        const mockExpense = {name: 'test', price: -100, categoryId: '1', id: '1'};
+        expect(() => reducer({}, {type: 'EXPENSE_CREATE', payload: mockExpense})).toThrow('EXPENSE REDUCER: Expense name cannot be empty or/and price cannot be negative.');
+      });
     });
   });
 
@@ -110,12 +114,35 @@ describe('Expense reducer', () => {
   });
 
   describe('expense delete action', () => {
-    test('should return an app state with a expense removed', () => {
-      const mockExpense = {name: 'new expense', price: 100, categoryId: '1', id: '1'};
-      const mockCategory = {name: 'new one', budget: 100, id: '1'};
-      let state = reducer({}, {type: 'CATEGORY_CREATE', payload: mockCategory});
-      let expected = {'1': []};
-      expect(reducer(state, {type: 'EXPENSE_DELETE', payload: mockExpense})).toEqual(expected);
+    describe('valid input', () => {
+      test('should return an app state with a expense removed', () => {
+        const mockExpense = {name: 'new expense', price: 100, categoryId: '1', id: '1'};
+        const mockCategory = {name: 'new one', budget: 100, id: '1'};
+        let state = reducer({}, {type: 'CATEGORY_CREATE', payload: mockCategory});
+        let expected = {'1': []};
+        expect(reducer(state, {type: 'EXPENSE_DELETE', payload: mockExpense})).toEqual(expected);
+      });
+    });
+
+    describe('invalid input', () => {
+      test('should throw an error if category id is empty', () => {
+        const mockExpense = {name: 'new expense', price: 100, categoryId: '', id: '1'};
+        expect(() => reducer({}, {type: 'EXPENSE_DELETE', payload: mockExpense})).toThrow('EXPENSE REDUCER: Expense categoryID must be present.');
+      });
+      test('should throw an error if expense id is empty', () => {
+        const mockExpenseOne = {name: 'new expense', price: 100, categoryId: '1', id: ''};
+        expect(() => reducer({}, {type: 'EXPENSE_DELETE', payload: mockExpenseOne})).toThrow('EXPENSE REDUCER: Expense ID must be present.');
+        const mockExpenseTwo = {name: 'new expense', price: 100, categoryId: '1', id: '   '};
+        expect(() => reducer({}, {type: 'EXPENSE_DELETE', payload: mockExpenseTwo})).toThrow('EXPENSE REDUCER: Expense ID must be present.');
+      });
+      test('should throw an error if name is empty', () => {
+        const mockExpense = {name: '', price: 100, categoryId: '1', id: '1'};
+        expect(() => reducer({}, {type: 'EXPENSE_DELETE', payload: mockExpense})).toThrow('EXPENSE REDUCER: Expense name cannot be empty or/and price cannot be negative.');
+      });
+      test('should throw an error if price is negative', () => {
+        const mockExpense = {name: 'test', price: -100, categoryId: '1', id: '1'};
+        expect(() => reducer({}, {type: 'EXPENSE_DELETE', payload: mockExpense})).toThrow('EXPENSE REDUCER: Expense name cannot be empty or/and price cannot be negative.');
+      });
     });
   });
 });
