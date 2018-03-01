@@ -2,7 +2,8 @@ import React from 'react';
 import {connect} from 'react-redux';
 import CategoryForm from './category-form';
 import ExpenseForm from '../expense/expense-form';
-import {expenseCreate, expenseUpdate, expenseDestroy} from '../../actions/expense-actions';
+import { categoryUpdate } from '../../actions/category-action';
+import {expenseCreate} from '../../actions/expense-actions';
 import ExpenseItem from '../expense/expense-item';
 
 // import { renderIf } from '../lib/index';
@@ -61,7 +62,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = (dispatch, getState) => ({
   ExpenseCreate: expense => dispatch(expenseCreate(expense)),
-  // CategoryUpdate: category => dispatch(categoryUpdate(category)),
+  CategoryUpdate: category => dispatch(categoryUpdate(category)),
   // CategoryDestroy: category => dispatch(categoryDestroy(category)),
 });
 
