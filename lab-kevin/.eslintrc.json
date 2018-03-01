@@ -25,7 +25,7 @@
     "sourceType": "module",
     "ecmaVersion": 6,
     "ecmaFeatures": {
-    	"modules": true,
+      "experimentalObjectRestSpread": true,
       "jsx": true
     }
   },
@@ -44,5 +44,3 @@
     "react"
   ]
 }
-
-

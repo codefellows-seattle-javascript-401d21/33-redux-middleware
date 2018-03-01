@@ -3,7 +3,7 @@ import {Modal} from '../../app';
 import {CategoryForm} from '../../category';
 import {ExpenseList} from '../../expenses';
 import {connect} from 'react-redux';
-import {category_update, category_delete} from '../../../actions/category-actions.js'
+import {category_update, category_delete} from '../../../actions/category-actions.js';
 
 
 class CategoryItem extends React.Component{
@@ -11,7 +11,6 @@ class CategoryItem extends React.Component{
     super(props);
     
     this.state = {
-      //editing: this.props.category.editing,
       editing: false,
       isVisible: false,
     };
@@ -20,6 +19,12 @@ class CategoryItem extends React.Component{
     this.handleClose = this.handleClose.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
     this.handleToggleExpenses = this.handleToggleExpenses.bind(this);
+    this.handleFormUpdate = this.handleFormUpdate.bind(this);
+  }
+
+  handleFormUpdate(formData){
+    this.props.CategoryItem_category_update(formData);
+    this.handleClose();
   }
 
   handleToggleExpenses(){
@@ -28,15 +33,15 @@ class CategoryItem extends React.Component{
 
   handleDoubleClick(e){
     if (!e.currentTarget.className === 'category-list-item') return;
-    this.setState({editing: true})
+    this.setState({editing: true});
   }
 
-  handleClose(e){
+  handleClose(){
     this.setState({editing: false});
   }
 
   handleDelete(){
-    this.props.CategoryItem_category_delete(this.props.category.id)
+    this.props.CategoryItem_category_delete(this.props.category.id);
   }
 
   render(){
@@ -58,7 +63,7 @@ class CategoryItem extends React.Component{
           <Modal onClose={this.handleClose}>
             <CategoryForm submit_text="Re-evaluation" 
               category={this.props.category}
-              onComplete={this.props.CategoryItem_category_update}/>
+              onComplete={this.handleFormUpdate}/>
           </Modal >
           : undefined
         }
