@@ -11,7 +11,7 @@ class Dashboard extends React.Component {
   render() {
     return (
       <section className="dashboard">
-        <h1>Another Budget app</h1>
+        <h1>Budget Tracker</h1>
 
         <CategoryForm
           buttonText='create'
