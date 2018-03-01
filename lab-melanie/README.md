@@ -1,4 +1,4 @@
-# 33R Redux Middleware
+# 33 Redux Middleware
 
 This is a budget making application. A user may create, update and delete budgets as well as view all items they have created in their dashboard. Once a category is created, the user may then add expenses to that category. The user may also delete and update these expenses.
 
