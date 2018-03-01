@@ -46,6 +46,8 @@ h2 {
   a {
     color: $dark_text;
     text-decoration: none;
+    font-size: 1.1em;
+    font-weight: bold;
   }
 }
 
@@ -140,7 +142,8 @@ h2 {
 
 .category-list-item {
   margin: 1em auto;
-  height: 19em;
+  min-height: 12em;
+  max-height: 19em;
   border-radius: $input_border_radius;
   background-color: $note_background_color;
 
@@ -219,6 +222,8 @@ h2 {
   text-align: center;
   width: 90%;
   margin: 0 auto;
+  height: 8em;
+  overflow: auto;
 
   li:nth-of-type(even){
     background-color: $light_text_color;

@@ -1,17 +1,11 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import {Route} from 'react-router-dom';
-import {Header, Footer} from '../index.js';
-import {Dashboard} from '../../dashboard/index.js';
+import {Header, Footer} from '../';
+import {Dashboard} from '../../dashboard';
 import {Provider} from 'react-redux';
 import store from '../../../lib/store.js';
 
 class App extends React.Component{
-
-  componentDidMount() {
-    store.subscribe(() => console.log('__STATE__: ', store.getState()))
-    store.dispatch({type: null})
-  }
   
   render(){
     return (
