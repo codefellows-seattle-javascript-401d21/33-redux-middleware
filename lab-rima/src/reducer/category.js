@@ -13,7 +13,6 @@ export default (state=[], action) => {
     }
     return state.map(category => category.id === payload.id ? payload : category);
   case 'CATEGORY_DELETE':
-console.log(payload.id);
     if(!payload.id || payload.id.trim().length === 0){
       throw new Error('Category ID must be present.');
     }
