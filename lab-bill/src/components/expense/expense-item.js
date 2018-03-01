@@ -1,7 +1,7 @@
 import React from 'react';
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
 import ExpenseForm from '../expense/expense-form';
-import {expenseUpdate, expenseDestroy} from '../../actions/expense-actions'
+import {expenseUpdate, expenseDestroy} from '../../actions/expense-actions';
 // import { renderIf } from '../lib/index';
 
 class ExpenseItem extends React.Component{
@@ -33,21 +33,21 @@ class ExpenseItem extends React.Component{
 
   render(){
     return(
-        <li>
-          <h2>{this.props.expense.name}</h2>
-          <p>{this.props.expense.price}</p>
-          <button type='submit' onClick={this.handleClick}> delete </button>
-          <ExpenseForm buttonText='update expense' update={this.props.ExpenseUpdate} destroy ={this.props.ExpenseDestroy} expense={this.props.expense}/>
-        </li>
+      <li>
+        <h2>{this.props.expense.name}</h2>
+        <p>{this.props.expense.price}</p>
+        <button type='submit' onClick={this.handleClick}> delete </button>
+        <ExpenseForm buttonText='update expense' update={this.props.ExpenseUpdate} destroy ={this.props.ExpenseDestroy} expense={this.props.expense}/>
+      </li>
     );
   }
 }
 
 
-let mapStateToProps = () => ({})
+let mapStateToProps = () => ({});
 let mapDispatchToProps = (dispatch, getState) => ({
   ExpenseUpdate: expense => dispatch(expenseUpdate(expense)),
   ExpenseDestroy: expense => dispatch(expenseDestroy(expense)),
-})
+});
 
-export default connect(mapStateToProps, mapDispatchToProps)(ExpenseItem)
+export default connect(mapStateToProps, mapDispatchToProps)(ExpenseItem);
