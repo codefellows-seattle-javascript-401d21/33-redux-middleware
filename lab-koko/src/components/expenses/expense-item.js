@@ -14,6 +14,10 @@ class ExpenseItem extends React.Component {
   handleDelete() {
     this.props.expenseItemExpenseDelete(this.state);
   }
+
+  handleUpdate () {
+    this.props.expenseItemExpenseUpdate(this.state);
+  }
   render() { 
     return ( 
       <div className="expense-item" id={this.props.expense._id} onDoubleClick={() => this.setState({edit: !this.state.edit})}>
@@ -30,7 +34,7 @@ class ExpenseItem extends React.Component {
   }
 } 
 const mapStateToProps = state => ({
-  categories: state,
+  expenses: state,
 });
 const mapDispatchToProps = (dispatch, getState) => ({
   expenseItemExpenseUpdate: expense => dispatch(expenseUpdate(expense)),

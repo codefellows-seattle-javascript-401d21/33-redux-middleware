@@ -10,7 +10,7 @@ export default (state=[], action) => {
     if(payload.title === '' && payload.budget === '') throw new Error('Please fill out what you would like to update');
     return state.map(category => category._id === payload._id ? payload : category);
   case 'CATEGORY_DELETE': 
-    if(!state._id) throw new Error('Nothing to delete');
+    if(!payload._id) throw new Error('Nothing to delete');
     return state.filter(category => category._id !== payload._id);
   case 'CATEGORY_RESET': return [];
   default: return state;

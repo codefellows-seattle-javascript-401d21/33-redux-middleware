@@ -3,8 +3,8 @@ import React from 'react';
 class ExpenseForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = this.props.expenses
-      ? this.props.expenses
+    this.state = this.props.expense
+      ? this.props.expense
       : {
         categoryId: this.props.categoryId,
         title: '',
@@ -19,7 +19,9 @@ class ExpenseForm extends React.Component {
   handleSubmit(event) {
     event.preventDefault();
     this.props.onComplete(this.state);
+    console.log(this.props);
     this.setState({
+      categoryId: this.props.categoryId,
       title: '',
       price: 0,
     });

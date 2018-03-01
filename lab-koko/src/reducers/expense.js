@@ -10,7 +10,7 @@ export default (state = {}, action) => {
     return {...state, [payload._id]: []};
   case 'CATEGORY_DELETE':
   { let changedState = {...state};
-    if(!changedState[payload._id]) throw new Error('Something went wrong');
+    // if(!changedState[payload._id]) throw new Error('Something went wrong');
     delete changedState[payload._id];
     return changedState;
   }
@@ -21,18 +21,18 @@ export default (state = {}, action) => {
     if (!payload.categoryId) throw new Error('Something went wrong');
     let categoryId = payload.categoryId;
     let expenses = state[categoryId];
-    let changedExpenses = [...expenses, payload];
-    return {...state, [categoryId]: changedExpenses};
+    let changedState = [...expenses, payload];
+    return {...state, [categoryId]: changedState};
   }
-  case 'EXPENSE_UPDATE' : {
-    if(!payload.categoryId) throw new Error ('Somthing went wrong');
+  case 'EXPENSE_UPDATE': {
+    console.log(payload);
     let categoryId = payload.categoryId;
-    let changedState = {...state};
-    changedState[categoryId] = state[categoryId].map(expense => expense._id === payload._id ? payload : expense);
-    return changedState;
+    let expenses = state[categoryId];
+    console.log(state);
+    let changedState = expenses.map(expense => expense._id === payload._id ? payload : expense);
+    return {...state, [categoryId] : changedState};
   }
   case 'EXPENSE_DELETE' : {
-    if(!payload.categoryId) throw new Error ('Nothing to delete');
     let categoryId = payload.categoryId;
     let changedState = {...state};
     changedState[categoryId] = state[categoryId].filter(expense => expense._id !== payload._id);

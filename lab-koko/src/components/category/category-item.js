@@ -3,15 +3,19 @@ import { connect } from 'react-redux';
 import CategoryForm from '../category/category-form';
 import { renderIf } from '../../lib/utils';
 import { categoryUpdate, categoryDelete } from '../../actions/category-actions';
-import ExpenseList from '../expenses/expense-list';
+import ExpenseForm from '../expenses/expense-form';
+import ExpenseItem from '../expenses/expense-item';
 import { expenseCreate } from '../../actions/expense-actions';
 
 class CategoryItem extends React.Component {
   constructor(props) {
     super(props);
-    this.state = this.props.category; 
-    this.state.edit = false;
+    this.state = {
+      category: this.props.category ? this.props.category : {},
+      edit: false,
+    };
     this.handleDelete = this.handleDelete.bind(this);
+    console.log('>>>>>>>>>>>>>>>>>>>>',this.state);
   }
   handleDelete() {
     this.props.categoryItemCategoryDelete(this.state);
@@ -30,10 +34,24 @@ class CategoryItem extends React.Component {
             onComplete={this.props.categoryItemCategoryUpdate}/>
         )}
         <h2>Add an expense</h2>
-        <ExpenseList 
-          className="expense-list"
-          categoryId={this.props.category._id}
+        <ExpenseForm 
+          className="expense-form"  
+          buttonText= 'Add'
+          categoryId ={this.props.category._id}
+          onComplete={this.props.categoryListExpenseCreate}
         />
+        {renderIf(this.props.expenses[this.props.category._id],
+          this.props.expenses[this.props.category._id].map(expense => <ExpenseItem key={expense._id} expense={expense}/>)
+        )}
+
+        {/* {console.log(this.props.expenses[this.props.category])}
+        {this.props.expenses?
+          <section>
+            {this.props.expenses[this.props.category._id].map(expense => <ExpenseItem key={expense._id} expense={expense} />)}
+          </section>
+          :
+          undefined
+        } */}
       </div>
     );
   }
@@ -45,5 +63,8 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = (dispatch, getState) => ({
   categoryItemCategoryUpdate: category => dispatch(categoryUpdate(category)),
   categoryItemCategoryDelete: category => dispatch(categoryDelete(category)),
+  categoryListExpenseCreate: expense => dispatch(expenseCreate(expense)),
+
 });
+
 export default connect(mapStateToProps, mapDispatchToProps)(CategoryItem);
