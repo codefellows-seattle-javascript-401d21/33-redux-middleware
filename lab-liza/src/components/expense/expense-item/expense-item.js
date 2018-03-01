@@ -33,7 +33,7 @@ class ExpenseItem extends React.Component {
       <li className='expense-list-item'>
         <section onDoubleClick={this.handleEdit}>
           <h4>{this.props.expense.name}</h4>
-          <p>{this.props.expense.cost}</p>
+          <p>${this.props.expense.price}</p>
           <button onClick={this.handleDelete}>Delete</button>
         </section>
         {renderIf(this.state.editing,
@@ -47,9 +47,7 @@ class ExpenseItem extends React.Component {
   }
 }
 
-const mapStateToProps = state => ({
-  categories: state,
-});
+const mapStateToProps = state => ({});
 
 const mapDispatchToProps = (dispatch, getState) => ({
   itemExpenseUpdate: expense => dispatch(expenseUpdate(expense)),
