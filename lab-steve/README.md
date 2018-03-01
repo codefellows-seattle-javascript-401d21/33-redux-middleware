@@ -22,4 +22,9 @@ also allows for deleting or editing the category name or budget.
 
 ## Change Log
 ```
+2018-02-28 Moving files from previous lab [Steven Carpenter]
+2018-02-28 Added redux-devtools-extension module [Steven Carpenter]
+2018-02-28 Implemented the reducer validators which throw on invalid data
+2018-02-28 Added restore of state from localstorage for categories and expenses
+2018-02-28 Filledout the README
 ```
