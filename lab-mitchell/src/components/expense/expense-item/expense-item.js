@@ -26,20 +26,20 @@ class ExpenseItem extends React.Component {
 
   render() {
     return (
-      <li
+      <div
         className='expense-item'
         key={this.props.expense.id}
         onDoubleClick={this.handleEditing}>
         <p>Name: {this.props.expense.name}</p>
         <p>Cost: {this.props.expense.cost}</p>
-        <button onClick={this.handleDelete}>delete expense</button>
+        <button onClick={this.handleDelete}>delete</button>
         {renderIf(this.state.editing,
           <ExpenseForm
             expense={this.state}
             buttonText='update'
             onComplete={this.props.expenseUpdate} />
         )}
-      </li>
+      </div>
     );
   };
 }
