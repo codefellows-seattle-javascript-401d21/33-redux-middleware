@@ -1,3 +1,9 @@
+// import {createStore} from 'redux';
+// import reducer from '../reducer';
+
+// export default () => createStore(reducer);
+
+
 import {createStore,applyMiddleware} from 'redux';
 import reducer from '../reducer';
 import {composeWithDevTools} from 'redux-devtools-extension';

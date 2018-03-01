@@ -8,7 +8,7 @@ import ExpenseItem from '../expense/expense-item/index';
 class Dashboard extends React.Component {
   render() {
     return (
-      <section>
+      <section className="dashboard">
         <h1>Fudge-It Budget</h1>
         <CategoryForm
           buttonText="Create"
@@ -20,16 +20,6 @@ class Dashboard extends React.Component {
               <CategoryItem
                 category={category}
                 buttonText="Delete"/>
-
-              {/* {this.props.expenses[this.props.categories._id] ?
-                this.props.expenses[this.props.categories._id].map(expense =>
-                  <div key={expense._id}>
-                    <ExpenseItem expense={expense}/>
-                  </div>)
-                :
-                undefined
-              } */}
-
             </div>)
           :
           undefined

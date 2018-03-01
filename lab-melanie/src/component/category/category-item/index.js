@@ -41,17 +41,22 @@ class CategoryItem extends React.Component {
   }
 
   render() {
+    let spent = this.props.expenses[this.props.category._id].reduce((a, b) => a + parseInt(b.price), 0);
+
     return (
       <div className="category-item" key={this.props.category._id}>
-        <h3 onDoubleClick={this.handleEditing}>{this.props.category.name}</h3>
-        <p>Budget: ${this.props.category.budget}</p>
+        <h2 onDoubleClick={this.handleEditing}>{this.props.category.name}</h2>
+        <h3>Budget: ${this.props.category.budget}</h3>
+        <p>Remaining: ${this.props.category.budget - spent}</p>
         <button type="button" onClick={this.handleDelete}>{this.props.buttonText}</button>
+        <h5>Add an Expense</h5>
         {renderIf(this.state.editing, <CategoryForm
           category={this.props.category}
           buttonText="Update"
           onComplete={this.handleUpdate}/>)}
 
         <ExpenseForm
+          className="expense-create"
           categoryId={this.props.category._id}
           buttonText="Create Expense"
           onComplete={this.props.expenseItemExpenseCreate}

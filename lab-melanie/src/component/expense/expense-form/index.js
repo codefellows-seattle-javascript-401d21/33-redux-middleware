@@ -38,7 +38,7 @@ class ExpenseForm extends React.Component {
 
   render() {
     return (
-      <form className="expense-form" onSubmit={this.handleSubmit}>
+      <form className={this.props.className} onSubmit={this.handleSubmit}>
         <fieldset>
           <input
             type="text"
