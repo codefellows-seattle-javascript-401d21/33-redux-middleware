@@ -7,10 +7,6 @@ import {BrowserRouter, Route} from 'react-router-dom'
 const store = createStore()
 
 class App extends React.Component {
-  componentDidMount() {
-    store.subscribe(() => console.log('__STATE__: ', store.getState()))
-    store.dispatch({type: null})
-  }
 
   render() {
     return (

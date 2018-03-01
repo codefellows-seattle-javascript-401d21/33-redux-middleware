@@ -28,7 +28,7 @@ class CategoryItem extends React.Component {
   render() {
     return (
         <section className="category-item" onDoubleClick={this.handleEditing}>
-          <h3>Title</h3>
+          <h2>Category</h2>
           <p>{this.props.category.title}</p>
           <h3>Budget</h3>
           <p className="budget">${this.props.category.budget}</p>
