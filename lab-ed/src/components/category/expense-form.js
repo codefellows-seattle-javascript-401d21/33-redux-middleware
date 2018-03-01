@@ -32,7 +32,7 @@ class ExpenseForm extends React.Component {
   render() {
     return  (
       <section>
-        <h2>Expenses</h2>
+        <h2>{this.props.catTitle} expense</h2>
       <form className="expense-form" onSubmit={this.handleSubmit}>
         <input
           type="text"
