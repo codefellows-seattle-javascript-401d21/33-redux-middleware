@@ -19,7 +19,7 @@ describe('<Dashboard />', function(){
   });
   afterAll(() => this.wrapper.unmount());
 
-  test('should render two CategoryForm component', () => {
+  test('should render a CategoryForm component', () => {
     expect(this.wrapper.find('CategoryForm').length).toBe(1);
   });
 
