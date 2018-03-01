@@ -6,19 +6,20 @@ To create a budget, type in the name of your budget and a dollar limit, then pre
 
 ![home](./img/home.png)
 
-![create-one](./img/create-one.png)
-
 Each item will be added to the dashboard as it is created.
 
-![create-three](./img/create-three.png)
+![create-two](./img/create-item.png)
 
-To update an item, double click on the name of the category, this will pop up an update form. Type in any values you wish to change and press `update`.
+To update an item, double click on the name of the category, this will pop up an update form. Type in any values you wish to change and press `Update`.
 
-![update](./img/update.png)
+![update](./img/update-category.png)
 
 If you wish to delete a budget item, simply click on the `Delete` button.
 
-![delete](./img/delete.png)
+
+Same for creating updating, and deleting expenses. Adding an expense will also deduct from the 'Remaining' amount.
+
+![add-expense](./img/add-expense.png)
 
 
 
