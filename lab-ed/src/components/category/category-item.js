@@ -23,7 +23,6 @@ class CategoryItem extends React.Component {
 
   handleDelete() {
     this.props.categoryDelete(this.state)
-    console.log('state', this.state)
   }
 
   render() {
@@ -37,11 +36,12 @@ class CategoryItem extends React.Component {
 
           {renderIf(this.state.editing, <CategoryForm
             category={this.props.category}
-            buttonText='Update'
+            buttonText='update category'
             onComplete={this.props.categoryUpdate}/>)}
 
         <ExpenseForm
-          buttonText="create"
+          buttonText="create expense"
+          catTitle={this.props.category.title}
           categoryId={this.props.category._id}
           onComplete={this.props.expenseCreate}/>
 

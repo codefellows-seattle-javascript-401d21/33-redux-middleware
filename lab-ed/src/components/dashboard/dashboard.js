@@ -14,7 +14,7 @@ class Dashboard extends React.Component {
         <h1>Budget Tracker</h1>
 
         <CategoryForm
-          buttonText='create'
+          buttonText='create category'
           onComplete={this.props.categoryCreate}/>
 
         {renderIf(this.props.categories,

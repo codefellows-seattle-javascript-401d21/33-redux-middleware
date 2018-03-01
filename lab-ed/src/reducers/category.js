@@ -5,9 +5,11 @@ export default (state=initialState, action) => {
 
   switch(type) {
   case 'CATEGORY_CREATE':
+    if (payload.title === '' || payload.budget === '') throw new Error('all fields are required')
     return state.concat([payload])
 
   case 'CATEGORY_UPDATE':
+    if (payload.title === '' || payload.budget === '') throw new Error('all fields are required')
     return state.map(cat => cat._id === payload._id ? payload : cat)
 
   case 'CATEGORY_DELETE':
