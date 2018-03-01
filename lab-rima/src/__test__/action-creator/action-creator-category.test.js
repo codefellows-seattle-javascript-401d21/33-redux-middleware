@@ -1,4 +1,4 @@
-import * as actions from '../action/category-action';
+import * as actions from '../../action/category-action';
 
 describe('category-action module', () => {
 

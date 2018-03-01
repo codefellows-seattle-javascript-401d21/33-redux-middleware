@@ -6,7 +6,7 @@ require('jest');
 
 
 Enzyme.configure({adapter: new Adapter()});
-import ExpenseForm from '../components/expense-form/index';
+import ExpenseForm from '../../components/expense-form/index';
 
 
 describe('ExpenseForm component', () => {

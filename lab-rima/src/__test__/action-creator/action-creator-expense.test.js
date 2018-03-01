@@ -1,4 +1,4 @@
-import * as actions from '../action/expense-action';
+import * as actions from '../../action/expense-action';
 
 describe('expense-action module', () => {
 
