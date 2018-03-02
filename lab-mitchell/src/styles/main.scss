@@ -1,5 +1,4 @@
 $form-border: 2px solid black;
-
 body {
   background-color: gray;
   color: white;
@@ -21,19 +20,16 @@ input {
 .category-item {
   border: $form-border;
   margin: 2% auto;
-
   p {
     display: inline-block;
     margin-left: 5%;
   }
-
   button {
     display: inline-block;
     margin-left: 5.5%;
     margin-bottom: 4%;
     border: $form-border;
   }
-
   .category-form {
     background-color: pink;
     padding-top: 2.5vh;
