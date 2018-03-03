@@ -1,6 +1,38 @@
-body {
-  margin: 60px;
-  background-color: #aaa;
+// body {
+//   margin: 60px;
+//   background-color: #aaa;
+// }
+
+.wrapper {
+  display: grid;
+  grid-template-columns: 250px 250px 250px 250px 250px;
+  grid-template-rows: 150px 150px 150px 150px 150px 150px 150px;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.one {
+  background-color: red;
+  grid-column-start: 1;
+  grid-column-end: 5;
+  grid-row-start: 1;
+  grid-row-end: 2;
+}
+
+.two {
+  background-color: green;
+  grid-column-start: 3;
+  grid-column-end: 5;
+  grid-row-start: 2;
+  grid-row-end: 4;
+}
+
+.three {
+  background-color: yellow;
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 2;
+  grid-row-end: 4;
 }
 
 h1 {

@@ -30,7 +30,7 @@ class CategoryForm extends React.Component {
   render() {
     return  (
       <section>
-        <h2>Create category</h2>
+        <h2>Category</h2>
       <form className="category-form" onSubmit={this.handleSubmit}>
         <input
           type="text"

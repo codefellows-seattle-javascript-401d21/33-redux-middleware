@@ -10,13 +10,18 @@ import {renderIf} from '../../lib/utils'
 class Dashboard extends React.Component {
   render() {
     return (
+      
       <section className="dashboard">
         <h1>Budget Tracker</h1>
 
+        <div className="wrapper">
+        <div className="one">
         <CategoryForm
           buttonText='create category'
           onComplete={this.props.categoryCreate}/>
+        </div>
 
+        <div className="two">
         {renderIf(this.props.categories,
           this.props.categories.map(cat =>
             <CategoryItem
@@ -24,7 +29,10 @@ class Dashboard extends React.Component {
               key={cat._id}
               category={cat}></CategoryItem>)
         )}
+         </div>
+        </div>
       </section>
+     
     )
   }
 }
