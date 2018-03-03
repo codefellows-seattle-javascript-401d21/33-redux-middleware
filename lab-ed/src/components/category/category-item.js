@@ -11,7 +11,9 @@ import {expenseCreate} from '../../actions/expense-actions'
 class CategoryItem extends React.Component {
   constructor(props) {
     super(props)
-    this.state = this.props.category ? this.props.category : {}
+    this.state = {
+      editing: false
+    }
     
     this.handleEditing = this.handleEditing.bind(this)
     this.handleDelete = this.handleDelete.bind(this)
@@ -22,17 +24,19 @@ class CategoryItem extends React.Component {
   }
 
   handleDelete() {
-    this.props.categoryDelete(this.state)
+    this.props.categoryDelete(this.props.category)
   }
 
   render() {
     return (
-        <section className="category-item" onDoubleClick={this.handleEditing}>
+        <section className="category-item">
+          <div onDoubleClick={this.handleEditing}>
           <h2>Category</h2>
           <p>{this.props.category.title}</p>
           <h3>Budget</h3>
           <p className="budget">${this.props.category.budget}</p>
           <button className="deleteButton" onClick={this.handleDelete}>delete</button>
+          </div>
 
           {renderIf(this.state.editing, <CategoryForm
             category={this.props.category}
@@ -44,7 +48,6 @@ class CategoryItem extends React.Component {
           catTitle={this.props.category.title}
           categoryId={this.props.category._id}
           onComplete={this.props.expenseCreate}/>
-
         {renderIf(this.props.expenses[this.props.category._id],
           this.props.expenses[this.props.category._id].map(expense => <ExpenseItem key={expense._id} expense={expense}/>)
         )}

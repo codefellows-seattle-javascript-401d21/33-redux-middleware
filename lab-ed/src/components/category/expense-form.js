@@ -31,7 +31,7 @@ class ExpenseForm extends React.Component {
 
   render() {
     return  (
-      <section>
+      <div className="three">
         <h2>{this.props.catTitle} expense</h2>
       <form className="expense-form" onSubmit={this.handleSubmit}>
         <input
@@ -52,7 +52,7 @@ class ExpenseForm extends React.Component {
 
         <button type="submit">{this.props.buttonText}</button>
       </form>
-      </section>
+      </div>
     )
   }
 }
