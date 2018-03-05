@@ -3,7 +3,6 @@ import uuid from 'uuid/v4';
 const expense_create = expense => {
   expense.id = uuid();
   expense.timeStamp = new Date();
-  //expense.editing = false;
 
   return {
     type: 'EXPENSE_CREATE',
