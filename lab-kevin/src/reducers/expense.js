@@ -38,7 +38,7 @@ export default (state={}, action) => {
     return tempState;
   };
 
-  takeAction['EXPENSE_RESET'] = () => {};
+  takeAction['EXPENSE_RESET'] = () => ({});
 
   return takeAction[type] ? takeAction[type](payload) : state;
 };
