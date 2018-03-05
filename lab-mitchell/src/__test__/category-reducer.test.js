@@ -55,4 +55,29 @@ describe('category reducer', function() {
     expect(state.length).toEqual(0);
     expect(state[0]).toBeUndefined();
   });
+
+  it('should return an error and message for invalid payload title on CATEGORY_CREATE', () => {
+    let categoryOne = { id: '1234', title: 'yooo', timestamp: new Date() };
+    let categoryTwo = { id: '5678', title: '', timestamp: new Date() };
+
+    let state = reducer([categoryOne], {
+      type: 'CATEGORY_CREATE',
+      payload: categoryTwo,
+    });
+
+    expect(state).toBeInstanceOf(Error);
+    expect(state.message).toMatch(/submit a category title/);
+  });
+  it('should handle CATEGORY_UPDATE', () => {
+    let categoryOne = { id: '1234', title: 'yooo', timestamp: new Date() };
+    let categoryTwoUpdate = { id: '1234', title: '' };
+
+    let state = reducer([categoryOne], {
+      type: 'CATEGORY_UPDATE',
+      payload: categoryTwoUpdate,
+    });
+
+    expect(state).toBeInstanceOf(Error);
+    expect(state.message).toMatch(/submit a category title/);
+  });
 });
