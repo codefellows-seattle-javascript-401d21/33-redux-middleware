@@ -10,10 +10,12 @@ export default (state=initialState, action) => {
     delete changedState[payload.id];
     return changedState;
 
-  case 'EXPENSE_CREATE': 
+  case 'EXPENSE_CREATE':
+    if(payload.name === '' || payload.cost == '') return new Error('submit a name and cost');
     state[payload.categoryId] = state[payload.categoryId].concat([payload]);
     return {...state};
-  case 'EXPENSE_UPDATE': 
+  case 'EXPENSE_UPDATE':
+    if(payload.name === '' || payload.cost == '') return new Error('submit a name and cost');
     let categoryStateUpdate = state[payload.categoryId].map(
       expense => expense.id === payload.id ? payload : expense);
     return {...state, [payload.categoryId]: categoryStateUpdate};
