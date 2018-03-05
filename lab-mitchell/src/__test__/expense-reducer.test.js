@@ -77,4 +77,65 @@ describe('expense reducer', function () {
     expect(state).toEqual({});
     expect(state[22]).toBeUndefined();
   });
+
+  it('should return error with message for invalid payload name on EXPENSE_CREATE', () => {
+    let expenseOne = { categoryId: '22', id: '1234', name: 'yooo', cost: 22, timestamp: new Date() };
+    let expenseTwo = { categoryId: '22', id: '5678', name: '', cost: 33, timestamp: new Date() };
+    let previousState = {
+      '22': [expenseOne],
+    };
+
+    let state = reducer(previousState, {
+      type: 'EXPENSE_CREATE',
+      payload: expenseTwo,
+    });
+
+    expect(state).toBeInstanceOf(Error);
+    expect(state.message).toMatch(/submit a name and cost/);
+  });
+  it('should return error with message for invalid payload cost on EXPENSE_CREATE', () => {
+    let expenseOne = { categoryId: '22', id: '1234', name: 'yooo', cost: 22, timestamp: new Date() };
+    let expenseTwo = { categoryId: '22', id: '5678', name: 'gruu', cost: '', timestamp: new Date() };
+    let previousState = {
+      '22': [expenseOne],
+    };
+
+    let state = reducer(previousState, {
+      type: 'EXPENSE_CREATE',
+      payload: expenseTwo,
+    });
+
+    expect(state).toBeInstanceOf(Error);
+    expect(state.message).toMatch(/submit a name and cost/);
+  });
+  it('should return error with message for invalid payload name on EXPENSE_UPDATE', () => {
+    let expenseOne = { categoryId: '22', id: '1234', name: 'yooo', cost: 22, timestamp: new Date() };
+    let expenseTwoUpdate = { categoryId: '22', id: '1234', name: '', cost: 33, timestamp: new Date() };
+    let previousState = {
+      '22': [expenseOne],
+    };
+
+    let state = reducer(previousState, {
+      type: 'EXPENSE_UPDATE',
+      payload: expenseTwoUpdate,
+    });
+
+    expect(state).toBeInstanceOf(Error);
+    expect(state.message).toMatch(/submit a name and cost/);
+  });
+  it('should return error with message for invalid payload cost on EXPENSE_UPDATE', () => {
+    let expenseOne = { categoryId: '22', id: '1234', name: 'yooo', cost: 22, timestamp: new Date() };
+    let expenseTwoUpdate = { categoryId: '22', id: '1234', name: 'gruu', cost: '', timestamp: new Date() };
+    let previousState = {
+      '22': [expenseOne],
+    };
+
+    let state = reducer(previousState, {
+      type: 'EXPENSE_UPDATE',
+      payload: expenseTwoUpdate,
+    });
+
+    expect(state).toBeInstanceOf(Error);
+    expect(state.message).toMatch(/submit a name and cost/);
+  });
 });
