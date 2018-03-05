@@ -1,12 +1,14 @@
 {
   "name": "lab-kevin",
   "version": "1.0.0",
-  "description": "32: Budget Tracker - using react and redux, create a simple app to categorize and track expenses",
+  "description": "33: Budget Tracker - using react and redux, create a simple app to categorize and track expenses, with a custom state reporter as middleware.",
   "main": "webpack.config.js",
   "scripts": {
     "lint": "eslint .",
     "build": "webpack",
-    "watch": "webpack-dev-server --inline --hot"
+    "watch": "webpack-dev-server --inline --hot",
+    "test": "jest --verbose -i",
+    "test:debug": "DEBUG=http* jest --verbose -i"
   },
   "keywords": [
     "webpack",
@@ -17,6 +19,7 @@
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-eslint": "^8.2.2",
+    "babel-jest": "^22.4.1",
     "babel-loader": "^7.1.2",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-env": "^1.6.1",
@@ -31,6 +34,7 @@
     "extract-text-webpack-plugin": "^3.0.2",
     "file-loader": "^1.1.9",
     "html-webpack-plugin": "^2.30.1",
+    "identity-obj-proxy": "^3.0.0",
     "jest": "^22.4.2",
     "node-sass": "^4.7.2",
     "react": "^16.2.0",
@@ -45,5 +49,26 @@
     "uuid": "^3.2.1",
     "webpack": "^3.11.0",
     "webpack-dev-server": "^2.11.1"
+  },
+  "jest": {
+    "verbose": true,
+    "moduleNameMapper": {
+      "^.+\\.(css|scss)$": "identity-obj-proxy"
+    },
+    "testEnvironment": "jsdom",
+    "collectCoverage": true,
+    "coverageDirectory": "./coverage",
+    "coveragePathIgnorePatterns": [
+      "/scss$/",
+      "/__test__/"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 80,
+        "functions": 80,
+        "lines": 80,
+        "statements": 80
+      }
+    }
   }
 }

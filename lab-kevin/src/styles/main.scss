@@ -4,11 +4,11 @@ $light_text_color: #f1ecde;
 $footer_background_color: #9BBFCC;
 $footer_color: #4a7769;
 $input_border: 1px solid $dark_text;
-$input_border_radius: .1em;
+$input_border_radius: .25em;
 $button_background_color: #d5e8d3;
 $button_hover_color:  #bbd6b6;
 $note_background_color: #4a7769;
-$modal_background_color: rgba(128,128,128,.3);
+$modal_background_color: rgba(32,32,32, 0.3);
 
 header {
   width: 100vw;
@@ -32,6 +32,7 @@ h2 {
   span {
     font-size: 0.5em;
     display: block;
+    margin: .25em;
   }
 }
 
@@ -49,6 +50,12 @@ h2 {
     font-size: 1.1em;
     font-weight: bold;
   }
+}
+
+main {
+  margin: 0 auto;
+  width: 90vw;
+  min-width: 400px;
 }
 
 .dash-nav-list {
@@ -70,16 +77,21 @@ h2 {
   float: right;
   font-size: 1.1em;
   background-color: $dark_text;
-  color: $header_background-color;
+  color: $button_background_color;
   padding: 0.5em .6em;
   border-radius: 1.5em;
   text-transform: uppercase;
-  border: 0.2em solid $button_background_color;  
+  border: 0.2em solid $button_background_color; 
 }
 
 .category-create, .category-view {
   margin: 0 auto;
-  width: 90vw;
+  width: 100%;
+  max-width: 680px;
+}
+
+.category-form input {
+  outline: none;
 }
 
 .category-form {
@@ -115,7 +127,7 @@ h2 {
     padding: .25em 1.5em;
     font-size: 1.5em;
     outline: none;
-    margin-left: 4vw;
+    margin-left: 1em;
     border: none;
     border-radius: $input_border_radius;
     
@@ -135,15 +147,13 @@ h2 {
   margin-bottom: 10em;
 }
 
-.category-list {
-  width: 90vw;
-  margin: 0 auto;
-}
-
 .category-list-item {
+  padding-bottom: 2em;
   margin: 1em auto;
   min-height: 12em;
-  max-height: 19em;
+  max-height: 23em;
+  max-width: 600px;
+  min-width: 400px;
   border-radius: $input_border_radius;
   background-color: $note_background_color;
 
@@ -154,13 +164,15 @@ h2 {
   }
   .category-name {
     float: left;
+    margin: .5em;
   }
 
   .category-amount {
     float:right;
+    margin: .5em 3.5em;
   }
 
-  h3, p {
+  h3 {
     width: 80%;
     margin: 0 auto;
     padding-top: 1em;
@@ -171,16 +183,20 @@ h2 {
     color: $dark_text
   }
 
+  div {
+    position: relative;
+    width: 80%;
+    margin: 0 auto;
+  }
+
   p {
-    padding: .5em;
     background-color: $light_text_color;
     font-size: 1.5em;
-    height: 1em;
+    height: 2em;
     border-radius: .2em;
     color: #dc0303;
-    margin: 1em;
-    float: left;
-    width: 60%;
+    margin: 1em auto;
+    width:100%;
   }
 
   button {
@@ -205,14 +221,25 @@ h2 {
   }
 
   .category-delete-btn {
+    position: absolute;
+    top: 0.25em;
+    right: .25em;
+    border-radius: .25em;
+    float: none;
+    margin: 0;
     padding: .25em .75em;
     background-color: $dark_text;
     color: $light_text_color; 
-    margin-top: 1.5em;
     border: 2px solid $light_text_color;
 
     &:hover{
       background-color: #dc0303; 
+    }
+  }
+
+  .modal-content form{
+    button {
+      margin-top: .75em;
     }
   }
 }
@@ -220,22 +247,31 @@ h2 {
 .expense-list {
   clear: both;
   text-align: center;
-  width: 90%;
+  width: 80%;
   margin: 0 auto;
-  height: 8em;
+  min-height: 7em;
+  max-height: 11em;
   overflow: auto;
+  border-radius: .1em;
 
   li:nth-of-type(even){
     background-color: $light_text_color;
   }
 
+  li:last-of-type{
+    border-bottom-left-radius: .1em;
+    border-bottom-right-radius: .1em;
+  }
+
   li {
+    clear:right;
     background-color: #dcd7ca;
     font-size: 1.3em;
     line-height: 1.7em;
   }
 
   .expense-item-add {
+    position: relative;
     background-color: $button_background_color;
   }
 
@@ -247,19 +283,113 @@ h2 {
   }
 
   button {
-    padding: .4em .6em;
+    padding: .3em .6em;
     background-color: $dark_text;
     color:  $light_text_color;
     border: 2px solid $light_text_color;
     border-radius: .1em;
-    margin: 0;
+    margin: .7em 1em .7em 0;
     font-size: .75em;
     
     &:hover{
-      background-color: #dc0303;
+      color: #000;
+      background-color: $note_background_color;
     }
   }
 
+  .category-form{
+    position: absolute;
+    z-index: 9;
+    background-color: $button_background_color;
+    label, input{
+      font-size: .95em;
+    }
+  }
+
+}
+
+.expense-item { 
+  div {
+    width: 100%;
+  }
+
+  button {
+    margin: 0.3em;
+    line-height: .7em;
+    padding-bottom: 0.5em;
+    }
+
+  .modal-content {
+
+    .modal-close {
+      float: right;
+      font-size: 1.1em;
+      background-color: $dark_text;
+      color: $button_background_color;
+      padding: 0.2em .6em;
+      margin-bottom: .7em;
+      border-radius: 1.5em;
+      text-transform: uppercase;
+      border: 0.2em solid $button_background_color; 
+    }
+
+    .category-form input {
+      outline: none;
+    }
+
+    .category-form {
+      position: static;
+      clear: right;
+      text-align: center;
+      background-color: initial;
+    }
+      
+    label {
+      font-size: 1.8em;
+      margin-left: .5em;
+      }
+
+    input {
+      color: $dark_text;
+      width: 40%;
+      margin: 0.5em auto;
+      font-size: 1.25em;
+      text-indent: .25em;
+      border: $input_border;
+      border-radius: $input_border_radius;
+    }
+
+    input[type="number"]{
+      width: 20%;
+      margin-left: .2em;
+    }
+
+    input {
+      height: 1.5em;
+    } 
+
+    .category-form button {
+      background-color: $button_background_color;
+      color: $dark_text;
+      padding-bottom: 0.5em;
+      font-size: 1.25em;
+      outline: none;
+      display: block;
+      float: right;
+      margin-right: .25em;
+      margin-top: .65em;
+      border: none;
+      border-radius: $input_border_radius;
+      
+        &:hover{
+          background-color:$button_hover_color;
+        }
+  
+        &:active {
+          color: $button_background_color;
+        }
+      }
+    }
 }
 
 /*** model ***/
@@ -270,6 +400,21 @@ h2 {
   right: 0;
   bottom: 0;
   background-color: $modal_background_color;
+
+  .modal-content {
+    max-width: 680px;
+    min-width: 400px;
+    height: 10em;
+    top: 16em;
+    background-color: $dark_text;;
+    padding: 1em;
+    border-radius: .2em;
+    box-shadow: 0.5em 0.5em 2em rgba(0,0,0,0.5);
+
+    .category-form label {
+      color: $light_text_color;
+    }
+  }
 
   .category-create {
     position: absolute;
