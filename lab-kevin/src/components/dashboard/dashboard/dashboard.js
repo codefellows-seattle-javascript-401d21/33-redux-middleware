@@ -10,9 +10,7 @@ class Dashboard extends React.Component{
     return (
       <section>
         <h2>Wealth is the ability to fully experience life. <span>--Henry David Thoreau</span></h2>
-        {/*<DashNav path={this.props.match.path}/>*/}
         <DashNav path=""/>
-        {/*<Route path={`${this.props.match.path}/category-create`} render={() => {*/}
         <Route path='/category-create' render={() => {
           return (
             <section className="category-create">
@@ -20,7 +18,6 @@ class Dashboard extends React.Component{
             </section>
           );
         }} />
-        {/*<Route path={`${this.props.match.path}/category-view`} render={() => {*/}
         <Route path='/category-view' render={() => {
           return (
             <ul className="category-list">
