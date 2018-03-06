@@ -11,7 +11,7 @@ export default (state={}, action) => {
   case 'SEASON_DELETE':
     delete state[payload._id];
     return {...state};
-  case 'CHAMP_GET': return payload;
+  case 'CHAMP_SET': return payload;
   case 'CHAMP_CREATE':
     validateChamp(payload);
     state[payload._id] = state[payload._id].concat([payload]);

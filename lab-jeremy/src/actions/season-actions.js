@@ -36,4 +36,18 @@ export const seasonCreateRequest = season => (dispatch, getState) => {
     .catch(logError);
 };
 
+export const seasonUpdateRequest = season => dispatch => {
+  return superagent.put(`${__API_URL__}/api/v1/season/${season._id}`)
+    .send(season)
+    .then(() => dispatch(seasonUpdate(season)))
+    .catch(logError);
+};
+
+export const seasonDeleteRequest = season => dispatch => {
+  console.log(season._id);
+  return superagent.delete(`${__API_URL__}/api/v1/season/${season._id}`)
+    .then(() => dispatch(seasonDelete(season)))
+    .catch(logError);
+};
+
 

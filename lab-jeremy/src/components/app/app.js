@@ -1,7 +1,8 @@
 import React from 'react';
+import '../../style/main.scss';
 import {Provider} from 'react-redux';
-import Dashboard from './dashboard';
-import createStore from '../lib/store';
+import Dashboard from '../dashboard/dashboard';
+import createStore from '../../lib/store';
 import {BrowserRouter, Route} from 'react-router-dom';
 
 let store = createStore();

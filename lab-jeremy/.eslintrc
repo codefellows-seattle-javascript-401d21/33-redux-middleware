@@ -12,7 +12,9 @@
     "err": true,
     "req": true,
     "res": true,
-    "next": true
+    "next": true,
+    "__API_URL__": true,
+    "__DEBUG__": true
   },
   "extends": "eslint:recommended",
   "parserOptions": {
