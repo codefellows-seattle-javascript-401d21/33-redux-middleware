@@ -1,8 +1,5 @@
-import expenseReducer from './expense';
 import {combineReducers} from 'redux';
-import categoryReducer from './category';
+import seasons from './season';
+import champs from './champ';
 
-export default combineReducers({
-  expenses: expenseReducer,
-  categories: categoryReducer,
-});
+export default combineReducers({seasons, champs});
