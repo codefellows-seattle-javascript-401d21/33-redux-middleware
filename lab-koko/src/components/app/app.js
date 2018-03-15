@@ -7,10 +7,6 @@ import {BrowserRouter, Route} from 'react-router-dom';
 const store = createStore();
 
 class App extends React.Component {
-  // componentDidMount() {
-  //   store.subscribe(() => console.log('__STATE__:', store.getState()));
-  //subscription to the store. log out the state changes. listen to any changes to the store and console logs thems
-  // }
   render() { 
     return (
       <div className='app'>

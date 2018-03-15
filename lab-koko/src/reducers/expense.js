@@ -10,7 +10,6 @@ export default (state = {}, action) => {
     return {...state, [payload._id]: []};
   case 'CATEGORY_DELETE':
   { let changedState = {...state};
-    // if(!changedState[payload._id]) throw new Error('Something went wrong');
     delete changedState[payload._id];
     return changedState;
   }
@@ -25,10 +24,8 @@ export default (state = {}, action) => {
     return {...state, [categoryId]: changedState};
   }
   case 'EXPENSE_UPDATE': {
-    console.log(payload);
     let categoryId = payload.categoryId;
     let expenses = state[categoryId];
-    console.log(state);
     let changedState = expenses.map(expense => expense._id === payload._id ? payload : expense);
     return {...state, [categoryId] : changedState};
   }

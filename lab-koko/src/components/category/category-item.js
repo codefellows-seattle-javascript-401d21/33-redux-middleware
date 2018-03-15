@@ -15,7 +15,6 @@ class CategoryItem extends React.Component {
       edit: false,
     };
     this.handleDelete = this.handleDelete.bind(this);
-    console.log('>>>>>>>>>>>>>>>>>>>>',this.state);
   }
   handleDelete() {
     this.props.categoryItemCategoryDelete(this.state);
@@ -43,15 +42,6 @@ class CategoryItem extends React.Component {
         {renderIf(this.props.expenses[this.props.category._id],
           this.props.expenses[this.props.category._id].map(expense => <ExpenseItem key={expense._id} expense={expense}/>)
         )}
-
-        {/* {console.log(this.props.expenses[this.props.category])}
-        {this.props.expenses?
-          <section>
-            {this.props.expenses[this.props.category._id].map(expense => <ExpenseItem key={expense._id} expense={expense} />)}
-          </section>
-          :
-          undefined
-        } */}
       </div>
     );
   }
