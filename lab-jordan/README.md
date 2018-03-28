@@ -1,18 +1,10 @@
-# Lab 33 - Budget Tracker Continued
-
-**Author**: Liza Oh
+# Budget Tracker Continued
 
 ## Overview
 Budget Tracker using React and Redux
 
-#### Configuration
-* `package.json`
-* `.eslintrc`
-* `.gitignore`
-* `.babelrc`
-
 ##### Components
-Create the following components and structure them according to the following diagram.
+
 ```
 App
   Provider
@@ -25,9 +17,3 @@ App
            [ExpenseItem]  -- list of ExpenseItems
               ExpenseForm -- for updating an expense
 ```
-
-## Built With
-* [Javascript](https://www.javascript.com/)
-* [React](https://reactjs.org/)
-* [WebPack](https://webpack.js.org/)
-* [Redux](https://redux.js.org/)
